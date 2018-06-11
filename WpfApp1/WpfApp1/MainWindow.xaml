@@ -5,8 +5,74 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Photo Gallery" Height="470" Width="800">
     <Grid>
-      
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition Height="0.4*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000" Margin="0,0,0,15">
+
+            <Border.RenderTransform>
+                <TranslateTransform X="5" Y="5" />
+            </Border.RenderTransform>
+            <Border.BitmapEffect>
+                <BlurBitmapEffect Radius="8" />
+            </Border.BitmapEffect>
+
+        </Border>
+        <Grid Name="G_1" Grid.Row="0" Margin="20,20,10,20">
+            <ScrollViewer Margin="0,0,0,20">
+                <Image Name="im_1"/>
+            </ScrollViewer>
+            <Slider Name="SL_1"  Grid.Column="0" VerticalAlignment="Bottom" Minimum="545"  Value="{Binding ElementName=im_1, Path=Width, Mode=TwoWay}"  Maximum="1000"/>
+
+        </Grid>
+
+
+
+        <Border Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000" Margin="5,0,30,15">
+            <Border.RenderTransform>
+                <TranslateTransform X="5" Y="5" />
+            </Border.RenderTransform>
+            <Border.BitmapEffect>
+                <BlurBitmapEffect Radius="8" />
+            </Border.BitmapEffect>
+
+        </Border>
+
+        <ScrollViewer  Grid.Column="1">
+            <StackPanel Name="SP_1" Margin="25,20,25,25">
+
+            </StackPanel>
+        </ScrollViewer>
+
+        <Border Grid.Row="1" Grid.Column="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" CornerRadius="4" Background="#44000000" Margin="0,0,0,10">
+            <Border.RenderTransform>
+                <TranslateTransform X="5" Y="0" />
+            </Border.RenderTransform>
+            <Border.BitmapEffect>
+                <BlurBitmapEffect Radius="8" />
+            </Border.BitmapEffect>
+        </Border>
+
+        <DockPanel Grid.Row="1"  Grid.Column="0" Margin="10,0,0,10">
+            
+            <Expander Header = "View details" Name="EX_1" Expanded="EX_1_Expanded" FontSize="10" FontFamily="Times New Roman" Collapsed="EX_1_Collapsed">
+             
+            </Expander>
+           
+        </DockPanel>
+
+        <DockPanel Grid.Row="1" Grid.Column="1" Margin="5,5,0,10" >
+            <Button Content="Open" Margin="5,0" FontSize="16" Click="Button_Click" FontFamily="Times New Roman"  Width="77" />
+            <Button Content="Close" Margin="5,0" FontSize="16" FontFamily="Times New Roman"  Width="84" Click="Button_Click_1" />
+        </DockPanel>
+
     </Grid>
 </Window>
